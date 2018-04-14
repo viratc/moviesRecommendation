@@ -1,0 +1,22 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/rated"
+                    android:title="@string/pref_sorting_label_rating" />
+                <!-- <item
+                    android:id="@+id/popular"
+                    android:title="@string/pref_sorting_label_popular" /> -->
+                <item
+                    android:id="@+id/favorites"
+                    android:title="@string/pref_sorting_label_favorites" />
+                <!-- <item
+                    android:id="@+id/upcoming"
+                    android:title="@string/pref_sorting_label_upcoming" /> -->
+                <item
+                    android:id="@+id/recommended"
+                    android:title="@string/pref_sorting_label_recommended" />
+            </group>
+
+</menu>

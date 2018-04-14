@@ -1,0 +1,10 @@
+<resources>
+    <!-- Default values for Padding -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Movie poster dimensions -->
+    <dimen name="poster_width">180dp</dimen>
+    <dimen name="poster_height">255dp</dimen>
+
+</resources>

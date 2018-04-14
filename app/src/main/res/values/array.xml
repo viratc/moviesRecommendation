@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="LoadPreferencesOptions">
+        <item>@string/pref_sorting_label_rating</item>
+        <item>@string/pref_sorting_label_popular</item>
+        <item>@string/pref_sorting_label_favorites</item>
+    </string-array>
+
+    <string-array name="LoadPreferencesValues">
+        <item>@string/pref_sorting_value_rating</item>
+        <item>@string/pref_sorting_value_popular</item>
+        <item>@string/pref_sorting_value_favorites</item>
+    </string-array>
+
+</resources>

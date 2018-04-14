@@ -1,0 +1,20 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.popularmovies.DetailsActivity">
+
+    <item
+        android:id="@+id/rating_bar"
+        android:title="Rating"
+        app:showAsAction="always"
+        android:icon="@drawable/abc_btn_rating_star_off_mtrl_alpha"
+        app:icon="@drawable/abc_btn_rating_star_off_mtrl_alpha" />
+
+    <item
+        android:id="@+id/action_share"
+        android:title="Share"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
+
+</menu>
