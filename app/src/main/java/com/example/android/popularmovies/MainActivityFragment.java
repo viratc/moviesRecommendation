@@ -73,6 +73,8 @@ public class MainActivityFragment extends Fragment {
     public static final int COLUMN_RATING=5;
     public static final int COLUMN_RELEASEDATE=6;
 
+    private MoviesDb db;
+
     public MainActivityFragment() {
     }
 
@@ -84,6 +86,7 @@ public class MainActivityFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        db = new MoviesDb(getContext());
     }
 
     @Override
@@ -244,6 +247,7 @@ public class MainActivityFragment extends Fragment {
                 return null;
             }
 
+            Uri builtUri;
             int page = 1;
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
@@ -252,13 +256,25 @@ public class MainActivityFragment extends Fragment {
             try {
                 final String API_BASE_URL = "http://api.themoviedb.org/3/movie/";
                 final String API_PARAM_PAGE = "page";
+                final String Recommendation = "recommendations";
                 final String API_KEY = "api_key";
 
-                Uri builtUri = Uri.parse(API_BASE_URL).buildUpon()
-                        .appendPath(params[0])
-                        .appendQueryParameter(API_PARAM_PAGE, String.valueOf(page))
-                        .appendQueryParameter(API_KEY, getString(R.string.api_key))//Enter TMDB API-KEY
-                        .build();
+                // Checking the SQL Query
+                Log.d("SQL Query for ID", MoviesDb.myQuery);
+
+                if(db.getMoveieId() != 0){
+                    builtUri = Uri.parse(API_BASE_URL).buildUpon()
+                            .appendPath(String.valueOf(db.getMoveieId()))
+                            .appendPath(Recommendation)
+                            .appendQueryParameter(API_KEY, getString(R.string.api_key))//Enter TMDB API-KEY
+                            .build();
+                }else{
+                    builtUri = Uri.parse(API_BASE_URL).buildUpon()
+                            .appendPath(params[0])
+                            .appendQueryParameter(API_PARAM_PAGE, String.valueOf(page))
+                            .appendQueryParameter(API_KEY, getString(R.string.api_key))//Enter TMDB API-KEY
+                            .build();
+                }
 
                 //http://api.themoviedb.org/3/movie/top_rated?page=1&api_key=**
                 //https://api.themoviedb.org/3/movie/{movie-id}/recommendations?api_key=**
@@ -401,7 +417,6 @@ public class MainActivityFragment extends Fragment {
                     null
             );
             return getFavoriteMovies(cursor);
-            MoviesDb db = db.getReadableDatabase().query()
         }
 
         @Override

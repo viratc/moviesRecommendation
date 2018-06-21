@@ -21,7 +21,7 @@
     <string name="msg_server_error">Server error</string>
 
     <!-- TMDb api -->
-    <string name="api_key"> 193014cb6351ef5d169b1b991d83a0ac </string> //Enter TMDB API-KEY
+    <string name="api_key"> 487226efb56e62bede303ae8db732dd7 </string> //Enter TMDB API-KEY
     <string name="api_poster_default_size">w185</string>
 
     <!-- labels -->

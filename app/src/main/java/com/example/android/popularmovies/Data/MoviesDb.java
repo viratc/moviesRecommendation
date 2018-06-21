@@ -1,6 +1,7 @@
 package com.example.android.popularmovies.Data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -14,6 +15,7 @@ public class MoviesDb extends SQLiteOpenHelper {
 
     public static final String name= "movies.db";
     public static final int version=1;
+    public static final String myQuery = "SELECT " +  MoviesContract.MoviesEntry.COLUMN_MOVIE_ID + " from " +  MoviesContract.MoviesEntry.TABLE_NAME;
 
     public MoviesDb(Context context) {
         super(context, name, null, version);
@@ -45,5 +47,23 @@ public class MoviesDb extends SQLiteOpenHelper {
 
         // re-create database
         onCreate(db);
+    }
+
+    public int getMoveieId(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(myQuery, null);
+
+        if(c != null){
+            c.moveToFirst();
+        }
+
+        try {
+            int movieID = c.getInt(c.getColumnIndex(MoviesContract.MoviesEntry.COLUMN_MOVIE_ID));
+            return movieID;
+        }catch(android.database.CursorIndexOutOfBoundsException ex) {
+            Log.e(LOG_TAG, "Error", ex);
+            return 0;
+        }
+
     }
 }
