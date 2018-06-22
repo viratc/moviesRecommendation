@@ -33,9 +33,10 @@ This project was built under the following configuration:
 ### Running the Application
 
 To run this application:
-  * Clone this repository
-  * Extract the zip file
-  * Import the extracted zip file into Android Studio IDE
-  * Configure the project as per the requirement
-  * Add the TMDB API-Key(*Refer prerequisite*)
-  * Run the application on the desired device from Android Studio
+
+      * Clone this repository
+      * Extract the zip file
+      * Import the extracted zip file into Android Studio IDE
+      * Configure the project as per the requirement
+      * Add the TMDB API-Key(*Refer prerequisite*)
+      * Run the application on the desired device from Android Studio
